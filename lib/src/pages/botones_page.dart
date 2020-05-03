@@ -14,29 +14,13 @@ class BotonesPage extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 _titulos(),
+                _botonesRedondos(),
               ],
             ),
           )
 
         ],
       ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   fixedColor: Colors.pink,
-      //   items: <BottomNavigationBarItem>[
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.calendar_today),
-      //       title: Container()
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.pie_chart_outlined),
-      //       title: Container()
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.supervised_user_circle),
-      //       title: Container()
-      //     )
-      //   ],
-      // ),
 
       bottomNavigationBar: _bottomNavigationBar(context),
     );
@@ -139,5 +123,64 @@ class BotonesPage extends StatelessWidget {
       ),
     );
   }
+
+  Widget _botonesRedondos() {
+
+    return Table(
+      children: <TableRow>[
+        TableRow(
+          children: [
+            _crearBotonRedondo(),
+            _crearBotonRedondo(),
+          ]
+        ),
+        TableRow(
+          children: [
+            _crearBotonRedondo(),
+            _crearBotonRedondo(),
+          ]
+        ),
+        TableRow(
+          children: [
+            _crearBotonRedondo(),
+            _crearBotonRedondo(),
+          ]
+        ),
+        TableRow(
+          children: [
+            _crearBotonRedondo(),
+            _crearBotonRedondo(),
+          ]
+        ),
+      ],
+    );
+
+  }
+
+  Widget _crearBotonRedondo(){
+
+    return Container(
+      height: 150.0,
+      margin: EdgeInsets.all(9.0),
+      decoration: BoxDecoration(
+        color: Color.fromRGBO(62, 66, 107, 0.7),
+        borderRadius: BorderRadiusDirectional.circular(20.0)
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          CircleAvatar(
+            radius: 30.0,
+            backgroundColor: Colors.pinkAccent,
+            child: Icon( Icons.swap_calls, color: Colors.white, size: 25.0, ),
+          ),
+          Text('Cosa', style: TextStyle( color: Colors.pinkAccent),)
+        ],
+      ),
+    );
+
+  }
+
+
 
 }
