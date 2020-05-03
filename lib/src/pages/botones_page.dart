@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
@@ -130,26 +131,26 @@ class BotonesPage extends StatelessWidget {
       children: <TableRow>[
         TableRow(
           children: [
-            _crearBotonRedondo(),
-            _crearBotonRedondo(),
+            _crearBotonRedondo(Colors.blue, Icons.border_all, 'General'),
+            _crearBotonRedondo(Colors.purpleAccent, Icons.directions_bus, 'Bus'),
           ]
         ),
         TableRow(
           children: [
-            _crearBotonRedondo(),
-            _crearBotonRedondo(),
+            _crearBotonRedondo(Colors.pinkAccent, Icons.shop, 'Buy'),
+            _crearBotonRedondo(Colors.orange, Icons.insert_drive_file, 'File'),
           ]
         ),
         TableRow(
           children: [
-            _crearBotonRedondo(),
-            _crearBotonRedondo(),
+            _crearBotonRedondo(Colors.blueAccent, Icons.movie_filter, 'Entertainment'),
+            _crearBotonRedondo(Colors.green, Icons.cloud, 'Cloud'),
           ]
         ),
         TableRow(
           children: [
-            _crearBotonRedondo(),
-            _crearBotonRedondo(),
+            _crearBotonRedondo(Colors.red, Icons.collections, 'Photos'),
+            _crearBotonRedondo(Colors.teal, Icons.help_outline, 'Help'),
           ]
         ),
       ],
@@ -157,25 +158,30 @@ class BotonesPage extends StatelessWidget {
 
   }
 
-  Widget _crearBotonRedondo(){
+  Widget _crearBotonRedondo(Color color, IconData icono, String texto){
 
-    return Container(
-      height: 150.0,
-      margin: EdgeInsets.all(9.0),
-      decoration: BoxDecoration(
-        color: Color.fromRGBO(62, 66, 107, 0.7),
-        borderRadius: BorderRadiusDirectional.circular(20.0)
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          CircleAvatar(
-            radius: 30.0,
-            backgroundColor: Colors.pinkAccent,
-            child: Icon( Icons.swap_calls, color: Colors.white, size: 25.0, ),
+    return ClipRRect(
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+        child: Container(
+          height: 150.0,
+          margin: EdgeInsets.all(9.0),
+          decoration: BoxDecoration(
+            color: Color.fromRGBO(62, 66, 107, 0.7),
+            borderRadius: BorderRadiusDirectional.circular(20.0)
           ),
-          Text('Cosa', style: TextStyle( color: Colors.pinkAccent),)
-        ],
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              CircleAvatar(
+                radius: 30.0,
+                backgroundColor: color,
+                child: Icon( icono, color: Colors.white, size: 25.0, ),
+              ),
+              Text(texto, style: TextStyle( color: color),)
+            ],
+          ),
+        ),
       ),
     );
 
