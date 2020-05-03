@@ -8,7 +8,16 @@ class BotonesPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          _fondoApp()
+          _fondoApp(),
+
+          SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                _titulos(),
+              ],
+            ),
+          )
+
         ],
       ),
     );
@@ -58,6 +67,24 @@ class BotonesPage extends StatelessWidget {
           top: -100.0,
         )
       ],
+    );
+
+  }
+
+  Widget _titulos() {
+
+    return SafeArea(
+      child: Container(
+        padding: EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text('Classify transaction', style: TextStyle(color: Colors.white, fontSize: 25.0, fontWeight: FontWeight.bold)),
+            SizedBox(height: 10.0,),
+            Text('Classify these transaction into a particular category', style: TextStyle(color: Colors.white, fontSize: 15.0))
+          ],
+        ),
+      ),
     );
 
   }
