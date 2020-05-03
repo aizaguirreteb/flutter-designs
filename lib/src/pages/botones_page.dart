@@ -160,7 +160,7 @@ class BotonesPage extends StatelessWidget {
 
   Widget _crearBotonRedondo(Color color, IconData icono, String texto){
 
-    return ClipRRect(
+    return ClipRect(
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
         child: Container(
